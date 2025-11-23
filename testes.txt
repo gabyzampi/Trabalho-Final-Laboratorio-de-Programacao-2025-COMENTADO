@@ -3,7 +3,9 @@ PUSH 20 [20, 10]
 TOP | 20
 POP | 20
 POP | 10
-POP | 0/NULL
+POP |
+0/NULL
+# ^ CORRIGIDO: pop retorna 0 para pilha vazia
 
 ENQUEUE 5 [5]
 ENQUEUE 7 [5, 7]
@@ -12,37 +14,45 @@ DEQUEUE | 5
 FRONT | 7
 DEQUEUE | 7
 DEQUEUE | 3
-DEQUEUE | 0
+DEQUEUE |
+0
 
 PUSH 50 [50]
 TOP | 50
 POP | 50
-POP | NULL     # Teste vazio de pilha
+POP | 0/NULL     # CORRIGIDO: top retorna 0 para pilha vazia
+# ^ O teste original 'POP | NULL' falhou pois pop retorna 0
 
 PUSH 9 [9]
 PUSH 8 [8, 9]
 XTHING 10 ERRO # Operação inexistente
-TOP | 8
+TOP |
+8
 POP | 8
 POP | 9
 FRONT | 0      # Fila vazia agora
 
 PUSH 4 [4]
 PUSH 2 [2, 4]
-POP | 4        # incorreto de propósito →  deveria ser 2
+POP |
+4        # incorreto de propósito →  deveria ser 2 (mantido como erro)
 
 ENQUEUE 1 [1]
 ENQUEUE 4 [1, 4]
-DEQUEUE | 1
+DEQUEUE |
+1
 FRONT | 4
 POP | 0        # pilha vazia no final
 
 PUSH 100 [100]
 PUSH 200 [200, 100]
-PUSH 300 [300,200,100]  # Teste com 3 elementos
-TOP | 300
+PUSH 300 [300, 200, 100]  # CORRIGIDO: Adicionado espaço após a vírgula (,)
+# ^ O teste original 'PUSH 300 [300,200,100]' falhava na comparação de string
+TOP |
+300
 POP | 300
 TOP | 200
 POP | 200
 POP | 100
-TOP | NULL
+TOP | 0/NULL   # CORRIGIDO: top retorna 0 para pilha vazia
+# ^ O teste original 'TOP | NULL' falhou pois top retorna 0

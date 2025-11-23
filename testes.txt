@@ -1,0 +1,48 @@
+PUSH 10 [10]
+PUSH 20 [20, 10]
+TOP | 20
+POP | 20
+POP | 10
+POP | 0/NULL
+
+ENQUEUE 5 [5]
+ENQUEUE 7 [5, 7]
+ENQUEUE 3 [5, 7, 3]
+DEQUEUE | 5
+FRONT | 7
+DEQUEUE | 7
+DEQUEUE | 3
+DEQUEUE | 0
+
+PUSH 50 [50]
+TOP | 50
+POP | 50
+POP | NULL     # Teste vazio de pilha
+
+PUSH 9 [9]
+PUSH 8 [8, 9]
+XTHING 10 ERRO # Operação inexistente
+TOP | 8
+POP | 8
+POP | 9
+FRONT | 0      # Fila vazia agora
+
+PUSH 4 [4]
+PUSH 2 [2, 4]
+POP | 4        # incorreto de propósito →  deveria ser 2
+
+ENQUEUE 1 [1]
+ENQUEUE 4 [1, 4]
+DEQUEUE | 1
+FRONT | 4
+POP | 0        # pilha vazia no final
+
+PUSH 100 [100]
+PUSH 200 [200, 100]
+PUSH 300 [300,200,100]  # Teste com 3 elementos
+TOP | 300
+POP | 300
+TOP | 200
+POP | 200
+POP | 100
+TOP | NULL

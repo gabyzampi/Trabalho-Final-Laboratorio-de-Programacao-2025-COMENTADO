@@ -8,7 +8,7 @@ int executarTeste(Teste* t, Pilha* p, Fila* f, char* buffer) {
 
     if (strcmp(t->operacao, "PUSH") == 0) {//Vericar se é Inserir na Pilha, se retornar 0 , é PUSH
         push(p, t->valor);  //chama a função, passando a pilha e o t->valor
-        printPilha(p, buffer); //Apos push, o buffer tera a saida que sera comparada com t-> esperado
+        visualizarPilha(p, buffer); //Apos push, o buffer tera a saida que sera comparada com t-> esperado
     }
     else if (strcmp(t->operacao, "POP") == 0) {//Vericar se é Remover da Pilha, se retornar 0 , é POP
         int r = pop(p);     //Chama a função para remover e guarda o valor retornado em r(se estiver vazia pode retornar 0)

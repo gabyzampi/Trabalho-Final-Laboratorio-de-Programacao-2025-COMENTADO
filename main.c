@@ -28,8 +28,8 @@ int main(int argc, char* argv[]) {
 
     Pilha p; // cria pilha
     Fila f; // cria fila
-    inicioPilha(&p); //inicializa
-    inicioFila(&f); //inicializa
+    iniciaPilha(&p); //inicializa
+    iniciaFila(&f); //inicializa
 
     char linha[MAX_LINE];//cada linha de teste
     int n = 1; // contador de testes

@@ -54,7 +54,7 @@ int top(Pilha* p) {
     return p->topo->valor;//Retorna o Topo sem remover
 }//Vizualizar Topo
 
-/*
+
 //Nao esta como pedido no trabalho
 // Imprime pilha no formato [20, 10], concatenada
 //strcat (destino,origem)
@@ -73,7 +73,7 @@ void visualizarPilha(Pilha* p, char* buffer) {
     }
     strcat(buffer, "]");//Pega o buffer e adiciona ] no final
 }
-*/
+
 
 
 //========================================= Fila =======================================
